@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Todo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Step 1: Personal Info -->
+  <div id="personalInfo" class="centered card">
+    <h2>Welcome! Let's Get Started</h2>
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+    <select id="theme">
+      <option value="light">Light</option>
+      <option value="dark" selected>Dark</option>
+    </select>
+    <button onclick="startApp()">Continue</button>
+  </div>
+
+  <!-- Step 2: Todo App -->
+  <div id="app" style="display:none;">
+    <header>
+      <div>
+        <h1>Welcome, <span id="userName"></span></h1>
+        <small id="userEmail"></small>
+      </div>
+      <button onclick="logout()">🔙 Reset</button>
+    </header>
+
+    <section class="add-task card">
+      <input type="text" id="taskInput" placeholder="What do you need to do?">
+      <textarea id="descInput" placeholder="Optional description..."></textarea>
+      <input type="date" id="dueInput">
+      <select id="priorityInput">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button onclick="addTask()">➕ Add</button>
+    </section>
+
+    <div class="filters">
+      <button onclick="filterTasks('all')" class="active">All</button>
+      <button onclick="filterTasks('completed')">Completed</button>
+      <button onclick="filterTasks('pending')">Pending</button>
+      <button onclick="filterTasks('overdue')">Overdue</button>
+    </div>
+
+    <div id="taskStats"></div>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
